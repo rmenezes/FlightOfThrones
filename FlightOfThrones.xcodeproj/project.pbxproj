@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5B3D8962272172C00DD15D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8952272172C00DD15D7 /* AppDelegate.swift */; };
+		E5B3D8982272172C00DD15D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8972272172C00DD15D7 /* ViewController.swift */; };
+		E5B3D89B2272172C00DD15D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B3D8992272172C00DD15D7 /* Main.storyboard */; };
+		E5B3D89E2272172C00DD15D7 /* FlightOfThrones.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D89C2272172C00DD15D7 /* FlightOfThrones.xcdatamodeld */; };
+		E5B3D8A02272172E00DD15D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B3D89F2272172E00DD15D7 /* Assets.xcassets */; };
+		E5B3D8A32272172E00DD15D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B3D8A12272172E00DD15D7 /* LaunchScreen.storyboard */; };
+		E5B3D8AE2272172F00DD15D7 /* FlightOfThronesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8AD2272172F00DD15D7 /* FlightOfThronesUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5B3D8AA2272172F00DD15D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5B3D88A2272172C00DD15D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5B3D8912272172C00DD15D7;
+			remoteInfo = FlightOfThrones;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E5B3D8922272172C00DD15D7 /* FlightOfThrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightOfThrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B3D8952272172C00DD15D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E5B3D8972272172C00DD15D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E5B3D89A2272172C00DD15D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E5B3D89D2272172C00DD15D7 /* FlightOfThrones.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlightOfThrones.xcdatamodel; sourceTree = "<group>"; };
+		E5B3D89F2272172E00DD15D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E5B3D8A22272172E00DD15D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E5B3D8A42272172E00DD15D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5B3D8A92272172F00DD15D7 /* FlightOfThronesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightOfThronesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B3D8AD2272172F00DD15D7 /* FlightOfThronesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightOfThronesUITests.swift; sourceTree = "<group>"; };
+		E5B3D8AF2272172F00DD15D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5B3D88F2272172C00DD15D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5B3D8A62272172F00DD15D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E5B3D8892272172C00DD15D7 = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8942272172C00DD15D7 /* FlightOfThrones */,
+				E5B3D8AC2272172F00DD15D7 /* FlightOfThronesUITests */,
+				E5B3D8932272172C00DD15D7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E5B3D8932272172C00DD15D7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8922272172C00DD15D7 /* FlightOfThrones.app */,
+				E5B3D8A92272172F00DD15D7 /* FlightOfThronesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5B3D8942272172C00DD15D7 /* FlightOfThrones */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8952272172C00DD15D7 /* AppDelegate.swift */,
+				E5B3D8972272172C00DD15D7 /* ViewController.swift */,
+				E5B3D8992272172C00DD15D7 /* Main.storyboard */,
+				E5B3D89F2272172E00DD15D7 /* Assets.xcassets */,
+				E5B3D8A12272172E00DD15D7 /* LaunchScreen.storyboard */,
+				E5B3D8A42272172E00DD15D7 /* Info.plist */,
+				E5B3D89C2272172C00DD15D7 /* FlightOfThrones.xcdatamodeld */,
+			);
+			path = FlightOfThrones;
+			sourceTree = "<group>";
+		};
+		E5B3D8AC2272172F00DD15D7 /* FlightOfThronesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8AD2272172F00DD15D7 /* FlightOfThronesUITests.swift */,
+				E5B3D8AF2272172F00DD15D7 /* Info.plist */,
+			);
+			path = FlightOfThronesUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5B3D8912272172C00DD15D7 /* FlightOfThrones */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5B3D8B22272172F00DD15D7 /* Build configuration list for PBXNativeTarget "FlightOfThrones" */;
+			buildPhases = (
+				E5B3D88E2272172C00DD15D7 /* Sources */,
+				E5B3D88F2272172C00DD15D7 /* Frameworks */,
+				E5B3D8902272172C00DD15D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlightOfThrones;
+			productName = FlightOfThrones;
+			productReference = E5B3D8922272172C00DD15D7 /* FlightOfThrones.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5B3D8A82272172F00DD15D7 /* FlightOfThronesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5B3D8B52272172F00DD15D7 /* Build configuration list for PBXNativeTarget "FlightOfThronesUITests" */;
+			buildPhases = (
+				E5B3D8A52272172F00DD15D7 /* Sources */,
+				E5B3D8A62272172F00DD15D7 /* Frameworks */,
+				E5B3D8A72272172F00DD15D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5B3D8AB2272172F00DD15D7 /* PBXTargetDependency */,
+			);
+			name = FlightOfThronesUITests;
+			productName = FlightOfThronesUITests;
+			productReference = E5B3D8A92272172F00DD15D7 /* FlightOfThronesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5B3D88A2272172C00DD15D7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Raul Menezes";
+				TargetAttributes = {
+					E5B3D8912272172C00DD15D7 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					E5B3D8A82272172F00DD15D7 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = E5B3D8912272172C00DD15D7;
+					};
+				};
+			};
+			buildConfigurationList = E5B3D88D2272172C00DD15D7 /* Build configuration list for PBXProject "FlightOfThrones" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E5B3D8892272172C00DD15D7;
+			productRefGroup = E5B3D8932272172C00DD15D7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5B3D8912272172C00DD15D7 /* FlightOfThrones */,
+				E5B3D8A82272172F00DD15D7 /* FlightOfThronesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5B3D8902272172C00DD15D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5B3D8A32272172E00DD15D7 /* LaunchScreen.storyboard in Resources */,
+				E5B3D8A02272172E00DD15D7 /* Assets.xcassets in Resources */,
+				E5B3D89B2272172C00DD15D7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5B3D8A72272172F00DD15D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5B3D88E2272172C00DD15D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5B3D8982272172C00DD15D7 /* ViewController.swift in Sources */,
+				E5B3D89E2272172C00DD15D7 /* FlightOfThrones.xcdatamodeld in Sources */,
+				E5B3D8962272172C00DD15D7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5B3D8A52272172F00DD15D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5B3D8AE2272172F00DD15D7 /* FlightOfThronesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5B3D8AB2272172F00DD15D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5B3D8912272172C00DD15D7 /* FlightOfThrones */;
+			targetProxy = E5B3D8AA2272172F00DD15D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E5B3D8992272172C00DD15D7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5B3D89A2272172C00DD15D7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E5B3D8A12272172E00DD15D7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5B3D8A22272172E00DD15D7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E5B3D8B02272172F00DD15D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E5B3D8B12272172F00DD15D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5B3D8B32272172F00DD15D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H6658UH7V;
+				INFOPLIST_FILE = FlightOfThrones/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.rmenezes.FlightOfThrones;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E5B3D8B42272172F00DD15D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H6658UH7V;
+				INFOPLIST_FILE = FlightOfThrones/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.rmenezes.FlightOfThrones;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E5B3D8B62272172F00DD15D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H6658UH7V;
+				INFOPLIST_FILE = FlightOfThronesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.rmenezes.FlightOfThronesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FlightOfThrones;
+			};
+			name = Debug;
+		};
+		E5B3D8B72272172F00DD15D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H6658UH7V;
+				INFOPLIST_FILE = FlightOfThronesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.rmenezes.FlightOfThronesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FlightOfThrones;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5B3D88D2272172C00DD15D7 /* Build configuration list for PBXProject "FlightOfThrones" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5B3D8B02272172F00DD15D7 /* Debug */,
+				E5B3D8B12272172F00DD15D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5B3D8B22272172F00DD15D7 /* Build configuration list for PBXNativeTarget "FlightOfThrones" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5B3D8B32272172F00DD15D7 /* Debug */,
+				E5B3D8B42272172F00DD15D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5B3D8B52272172F00DD15D7 /* Build configuration list for PBXNativeTarget "FlightOfThronesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5B3D8B62272172F00DD15D7 /* Debug */,
+				E5B3D8B72272172F00DD15D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E5B3D89C2272172C00DD15D7 /* FlightOfThrones.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E5B3D89D2272172C00DD15D7 /* FlightOfThrones.xcdatamodel */,
+			);
+			currentVersion = E5B3D89D2272172C00DD15D7 /* FlightOfThrones.xcdatamodel */;
+			path = FlightOfThrones.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E5B3D88A2272172C00DD15D7 /* Project object */;
+}
