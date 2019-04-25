@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ManagedFlight" representedClassName="ManagedFlight" syncable="YES" codeGenerationType="class">
+        <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inArline" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inArlineImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inArrivalDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inArrivalTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inDepartureDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inDepartureTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inDestination" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inOrigin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="outAirline" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="outArlineImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="outArrivalDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="outArrivalTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="outDepartureDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="outDepartureTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="outDestination" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="outOrigin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="ManagedFlightDestination" representedClassName="ManagedFlightDestination" syncable="YES" codeGenerationType="class">
+        <attribute name="destination" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="origin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ManagedFlight" positionX="-63" positionY="-18" width="128" height="315"/>
+        <element name="ManagedFlightDestination" positionX="-54" positionY="126" width="128" height="90"/>
+    </elements>
 </model>

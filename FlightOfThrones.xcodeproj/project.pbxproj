@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		E5B3D8962272172C00DD15D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8952272172C00DD15D7 /* AppDelegate.swift */; };
-		E5B3D8982272172C00DD15D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8972272172C00DD15D7 /* ViewController.swift */; };
-		E5B3D89B2272172C00DD15D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B3D8992272172C00DD15D7 /* Main.storyboard */; };
 		E5B3D89E2272172C00DD15D7 /* FlightOfThrones.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D89C2272172C00DD15D7 /* FlightOfThrones.xcdatamodeld */; };
 		E5B3D8A02272172E00DD15D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B3D89F2272172E00DD15D7 /* Assets.xcassets */; };
 		E5B3D8A32272172E00DD15D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B3D8A12272172E00DD15D7 /* LaunchScreen.storyboard */; };
 		E5B3D8AE2272172F00DD15D7 /* FlightOfThronesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8AD2272172F00DD15D7 /* FlightOfThronesUITests.swift */; };
+		E5B3D8C62272198400DD15D7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8C02272198400DD15D7 /* HomeViewController.swift */; };
+		E5B3D8CA22721AB900DD15D7 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8C922721AB900DD15D7 /* Banner.swift */; };
+		E5B3D8CE227224FE00DD15D7 /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8CD227224FE00DD15D7 /* Extensions+UIColor.swift */; };
+		E5B3D8D122722C5900DD15D7 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8D022722C5900DD15D7 /* Flight.swift */; };
+		E5B3D8D522722E9700DD15D7 /* FlightRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8D422722E9700DD15D7 /* FlightRemoteAPI.swift */; };
+		E5B3D8DC227239CF00DD15D7 /* FlightDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8DB227239CF00DD15D7 /* FlightDataStore.swift */; };
+		E5B3D8DE22723AA100DD15D7 /* FlightRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8DD22723AA100DD15D7 /* FlightRepository.swift */; };
+		E5B3D8E022723D2500DD15D7 /* Extension+NSManaged.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8DF22723D2500DD15D7 /* Extension+NSManaged.swift */; };
+		E5B3D8E32272498A00DD15D7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8E22272498A00DD15D7 /* HomeViewModel.swift */; };
+		E5B3D8E622724A6100DD15D7 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8E522724A6100DD15D7 /* Bindable.swift */; };
+		E5B3D8E822724D0A00DD15D7 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D8E722724D0A00DD15D7 /* NiblessViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +38,6 @@
 /* Begin PBXFileReference section */
 		E5B3D8922272172C00DD15D7 /* FlightOfThrones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightOfThrones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B3D8952272172C00DD15D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5B3D8972272172C00DD15D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E5B3D89A2272172C00DD15D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5B3D89D2272172C00DD15D7 /* FlightOfThrones.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlightOfThrones.xcdatamodel; sourceTree = "<group>"; };
 		E5B3D89F2272172E00DD15D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5B3D8A22272172E00DD15D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +45,17 @@
 		E5B3D8A92272172F00DD15D7 /* FlightOfThronesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlightOfThronesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B3D8AD2272172F00DD15D7 /* FlightOfThronesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightOfThronesUITests.swift; sourceTree = "<group>"; };
 		E5B3D8AF2272172F00DD15D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5B3D8C02272198400DD15D7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E5B3D8C922721AB900DD15D7 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		E5B3D8CD227224FE00DD15D7 /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
+		E5B3D8D022722C5900DD15D7 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		E5B3D8D422722E9700DD15D7 /* FlightRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRemoteAPI.swift; sourceTree = "<group>"; };
+		E5B3D8DB227239CF00DD15D7 /* FlightDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDataStore.swift; sourceTree = "<group>"; };
+		E5B3D8DD22723AA100DD15D7 /* FlightRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRepository.swift; sourceTree = "<group>"; };
+		E5B3D8DF22723D2500DD15D7 /* Extension+NSManaged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSManaged.swift"; sourceTree = "<group>"; };
+		E5B3D8E22272498A00DD15D7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E5B3D8E522724A6100DD15D7 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		E5B3D8E722724D0A00DD15D7 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +97,15 @@
 		E5B3D8942272172C00DD15D7 /* FlightOfThrones */ = {
 			isa = PBXGroup;
 			children = (
+				E5B3D8E422724A4900DD15D7 /* Utils */,
+				E5B3D8E12272497B00DD15D7 /* ViewModels */,
+				E5B3D8D322722E8400DD15D7 /* Data */,
+				E5B3D8D222722E1900DD15D7 /* ViewControllers */,
+				E5B3D8CF22722C3C00DD15D7 /* Models */,
+				E5B3D8CC227224ED00DD15D7 /* Extensions */,
+				E5B3D8CB22721CE500DD15D7 /* Locations */,
+				E5B3D8C822721A9F00DD15D7 /* Views */,
 				E5B3D8952272172C00DD15D7 /* AppDelegate.swift */,
-				E5B3D8972272172C00DD15D7 /* ViewController.swift */,
-				E5B3D8992272172C00DD15D7 /* Main.storyboard */,
 				E5B3D89F2272172E00DD15D7 /* Assets.xcassets */,
 				E5B3D8A12272172E00DD15D7 /* LaunchScreen.storyboard */,
 				E5B3D8A42272172E00DD15D7 /* Info.plist */,
@@ -97,6 +121,97 @@
 				E5B3D8AF2272172F00DD15D7 /* Info.plist */,
 			);
 			path = FlightOfThronesUITests;
+			sourceTree = "<group>";
+		};
+		E5B3D8C822721A9F00DD15D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8C922721AB900DD15D7 /* Banner.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E5B3D8CB22721CE500DD15D7 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		E5B3D8CC227224ED00DD15D7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8CD227224FE00DD15D7 /* Extensions+UIColor.swift */,
+				E5B3D8DF22723D2500DD15D7 /* Extension+NSManaged.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E5B3D8CF22722C3C00DD15D7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8D022722C5900DD15D7 /* Flight.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E5B3D8D222722E1900DD15D7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8E92272506800DD15D7 /* Home */,
+				E5B3D8E722724D0A00DD15D7 /* NiblessViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E5B3D8D322722E8400DD15D7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8DA227239B400DD15D7 /* Persistence */,
+				E5B3D8D92272399500DD15D7 /* Remote */,
+				E5B3D8DD22723AA100DD15D7 /* FlightRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E5B3D8D92272399500DD15D7 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8D422722E9700DD15D7 /* FlightRemoteAPI.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		E5B3D8DA227239B400DD15D7 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8DB227239CF00DD15D7 /* FlightDataStore.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		E5B3D8E12272497B00DD15D7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8E22272498A00DD15D7 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E5B3D8E422724A4900DD15D7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8E522724A6100DD15D7 /* Bindable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E5B3D8E92272506800DD15D7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D8C02272198400DD15D7 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +297,6 @@
 			files = (
 				E5B3D8A32272172E00DD15D7 /* LaunchScreen.storyboard in Resources */,
 				E5B3D8A02272172E00DD15D7 /* Assets.xcassets in Resources */,
-				E5B3D89B2272172C00DD15D7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,9 +314,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5B3D8982272172C00DD15D7 /* ViewController.swift in Sources */,
 				E5B3D89E2272172C00DD15D7 /* FlightOfThrones.xcdatamodeld in Sources */,
+				E5B3D8E32272498A00DD15D7 /* HomeViewModel.swift in Sources */,
+				E5B3D8E622724A6100DD15D7 /* Bindable.swift in Sources */,
+				E5B3D8E822724D0A00DD15D7 /* NiblessViewController.swift in Sources */,
+				E5B3D8CA22721AB900DD15D7 /* Banner.swift in Sources */,
+				E5B3D8E022723D2500DD15D7 /* Extension+NSManaged.swift in Sources */,
 				E5B3D8962272172C00DD15D7 /* AppDelegate.swift in Sources */,
+				E5B3D8C62272198400DD15D7 /* HomeViewController.swift in Sources */,
+				E5B3D8D122722C5900DD15D7 /* Flight.swift in Sources */,
+				E5B3D8DC227239CF00DD15D7 /* FlightDataStore.swift in Sources */,
+				E5B3D8CE227224FE00DD15D7 /* Extensions+UIColor.swift in Sources */,
+				E5B3D8DE22723AA100DD15D7 /* FlightRepository.swift in Sources */,
+				E5B3D8D522722E9700DD15D7 /* FlightRemoteAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +349,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E5B3D8992272172C00DD15D7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E5B3D89A2272172C00DD15D7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E5B3D8A12272172E00DD15D7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
