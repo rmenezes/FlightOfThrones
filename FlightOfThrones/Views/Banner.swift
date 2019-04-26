@@ -27,8 +27,21 @@ class Banner: UIControl {
         return button
     }()
     
+    fileprivate let activityIndicator: UIActivityIndicatorView = {
+        let activity = UIActivityIndicatorView()
+        activity.isHidden = true
+        return activity
+    }()
+    
     // MARK: Fields
     fileprivate var onSearchDragonsSelector: Selector? = nil
+    
+    // MARK: Properties
+    var isBusy: Bool = false {
+        didSet {
+            onIsBusy()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,6 +65,7 @@ class Banner: UIControl {
         
         addSubview(bgBanner)
         addSubview(dragonButton)
+        addSubview(activityIndicator)
 
         setupContraints()
     }
@@ -70,5 +84,22 @@ class Banner: UIControl {
         dragonButton.widthAnchor.constraint(equalToConstant: 137).isActive = true
         dragonButton.heightAnchor.constraint(equalToConstant: 28).isActive = true
         dragonButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        
+        // Activity Indicator
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        activityIndicator.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+    }
+    
+    fileprivate func onIsBusy() {
+        if isBusy {
+            self.dragonButton.isHidden = true
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
+        } else {
+            self.dragonButton.isHidden = false
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
+        }
     }
 }

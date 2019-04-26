@@ -49,12 +49,25 @@ extension ManagedFlightDestination {
                              outOrigin: String(outbound[1].trimmingCharacters(in: .whitespaces)),
                              inDestination: String(inbound[0].trimmingCharacters(in: .whitespaces)),
                              inOrigin: String(inbound[1].trimmingCharacters(in: .whitespaces)),
-                             minPrice: price)
+                             minPrice: price,
+                             currency: currency!)
     }
     
     func fromFlightByPrice(flight: FlightByPrice) {
         price = flight.minPrice
-        destination = "\(flight.outOrigin) - \(flight.inDestination)"
+        destination = "\(flight.outOrigin) - \(flight.outDestination)"
         origin = "\(flight.inOrigin) - \(flight.inDestination)"
+        currency = flight.currency
+    }
+}
+
+extension ManagedCurrency {
+    func fromCurrency(currency: String, exchange: Currency) {
+        value = exchange.exchangeRate
+        self.currency = currency
+    }
+    
+    func toCurrency() -> Currency {
+        return Currency(currency: currency!, exchangeRate: value)
     }
 }

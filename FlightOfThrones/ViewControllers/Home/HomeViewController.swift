@@ -18,9 +18,11 @@ class HomeViewController: NiblessViewController {
     
     // MARK: Fields
     fileprivate let viewModel: HomeViewModelProtocol
+    fileprivate let viewControllerFactory: HomeViewControllerFactory
     
-    init(viewModel: HomeViewModelProtocol) {
+    init(viewModel: HomeViewModelProtocol, viewControllerFactory: HomeViewControllerFactory) {
         self.viewModel = viewModel
+        self.viewControllerFactory = viewControllerFactory
         
         super.init()
     }
@@ -29,25 +31,33 @@ class HomeViewController: NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.global(qos: .background).async {
-            self.viewModel.sync(completationHandler: { (error) in
-                
-            })
-        }
+        observeIsBusy()
+        
+        self.viewModel.sync(completationHandler: { (error) in
+            
+        })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default
     }
     
     // MARK: Handlers
-    
     @objc func onBannerTapped() {
-        
+        navigationController?.pushViewController(viewControllerFactory.makeDetinationsViewController(), animated: true)
     }
     
+    func observeIsBusy() {
+        viewModel.isBusy.bind { (isBusy) in
+            DispatchQueue.main.async {
+                self.bannerView.isBusy = isBusy ?? false
+            }
+        }
+    }
+    
+    // MARK: Overrides
     override func setupInterface() {
-        view.backgroundColor = UIColor.fromHexa("#E4E4E4")
+        view.backgroundColor = Apperance.Colors.gray
         
         view.addSubview(bannerView)
         
@@ -64,4 +74,8 @@ class HomeViewController: NiblessViewController {
         bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         bannerView.heightAnchor.constraint(equalToConstant: 183).isActive = true
     }
+}
+
+protocol HomeViewControllerFactory {
+    func makeDetinationsViewController() -> DestinationViewController
 }

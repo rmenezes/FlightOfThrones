@@ -54,7 +54,7 @@ class FlightRepository: FlightRepositoryProtocol {
                 return flight1.price < flight2.price
             })!.price
             
-            return FlightByPrice(outDestination: item.value[0].outbound.destination, outOrigin: item.value[0].outbound.origin, inDestination: item.value[0].inbound.destination, inOrigin: item.value[0].inbound.origin, minPrice: minPrice)
+            return FlightByPrice(outDestination: item.value[0].outbound.destination, outOrigin: item.value[0].outbound.origin, inDestination: item.value[0].inbound.destination, inOrigin: item.value[0].inbound.origin, minPrice: minPrice, currency: item.value[0].currency)
         })
         
         self.dataStore.saveDestinations(flights: flightsByDestination, completionHandler: completationHandler )
@@ -63,6 +63,7 @@ class FlightRepository: FlightRepositoryProtocol {
 
 enum FlightError: Error {
     case cannotFetchOnlineFlights(String)
+    case cannotFetchCurrency(String)
     case cannotSaveFlight(String)
     case cannotSaveDestination(String)
     case cannotFeatchLocalFlights(String)

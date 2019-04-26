@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ManagedCurrency" representedClassName="ManagedCurrency" syncable="YES" codeGenerationType="class">
+        <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="ManagedFlight" representedClassName="ManagedFlight" syncable="YES" codeGenerationType="class">
         <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="inArline" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,12 +25,14 @@
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="ManagedFlightDestination" representedClassName="ManagedFlightDestination" syncable="YES" codeGenerationType="class">
+        <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="destination" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="origin" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="ManagedFlight" positionX="-63" positionY="-18" width="128" height="315"/>
-        <element name="ManagedFlightDestination" positionX="-54" positionY="126" width="128" height="90"/>
+        <element name="ManagedFlightDestination" positionX="-54" positionY="126" width="128" height="105"/>
+        <element name="ManagedCurrency" positionX="-36" positionY="135" width="128" height="75"/>
     </elements>
 </model>

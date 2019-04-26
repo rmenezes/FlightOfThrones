@@ -35,5 +35,6 @@ struct FlightByPrice {
     let outOrigin: String
     let inDestination: String
     let inOrigin: String
-    let minPrice: Double
+    var minPrice: Double
+    var currency: String
 }
