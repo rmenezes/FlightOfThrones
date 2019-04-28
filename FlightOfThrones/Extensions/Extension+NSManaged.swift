@@ -42,22 +42,24 @@ extension ManagedFlight {
 
 extension ManagedFlightDestination {
     func toDestination() -> FlightByPrice {
-        let outbound = destination!.split(separator: "-")
-        let inbound = origin!.split(separator: "-")
         
-        return FlightByPrice(outDestination: String(outbound[0].trimmingCharacters(in: .whitespaces)),
-                             outOrigin: String(outbound[1].trimmingCharacters(in: .whitespaces)),
-                             inDestination: String(inbound[0].trimmingCharacters(in: .whitespaces)),
-                             inOrigin: String(inbound[1].trimmingCharacters(in: .whitespaces)),
+        return FlightByPrice(outDestination: outDestination!,
+                             outOrigin: outOrigin!,
+                             inDestination: inDestination!,
+                             inOrigin: inOrigin!,
                              minPrice: price,
                              currency: currency!)
     }
     
     func fromFlightByPrice(flight: FlightByPrice) {
         price = flight.minPrice
-        destination = "\(flight.outOrigin) - \(flight.outDestination)"
-        origin = "\(flight.inOrigin) - \(flight.inDestination)"
         currency = flight.currency
+        
+        self.outDestination = flight.outDestination
+        self.outOrigin = flight.outOrigin
+        
+        self.inDestination = flight.inDestination
+        self.inOrigin = flight.inOrigin
     }
 }
 

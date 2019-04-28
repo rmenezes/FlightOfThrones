@@ -12,5 +12,6 @@ struct Apperance {
     struct Colors {
         static let gray = UIColor.fromHexa("#E4E4E4")
         static let middleGray = UIColor.fromHexa("#9A9A9A")
+        static let bordeu = UIColor.fromHexa("#740707")
     }
 }

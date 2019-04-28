@@ -11,15 +11,6 @@ import UIKit
 let kDestinationViewCellIdentifier: String = "kDestinationViewCellIdenfifier"
 
 class DestinationsViewCell: UICollectionViewCell {
-    // Fields
-    fileprivate let numberFormat: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 2
-        formatter.decimalSeparator = "."
-        return formatter
-    }()
-    
     // MARK: UI Elements
     fileprivate let originLabel: UILabel = {
         let label = UILabel()
@@ -52,21 +43,7 @@ class DestinationsViewCell: UICollectionViewCell {
             destinationLabel.attributedText = datasource.toDestinationoNSAttributedString()
             
             // Price Label
-            let price = numberFormat.string(from: NSNumber(value: datasource!.minPrice))?.split(separator: ".")
-            // Symbol
-            let attr = NSMutableAttributedString(string: datasource.currency.currencyToSymbol(), attributes: [
-                NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14),
-                NSAttributedString.Key.foregroundColor: UIColor.black])
-            // Decimal
-            attr.append(NSAttributedString(string: String(price![0]), attributes: [
-                NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 28),
-                NSAttributedString.Key.foregroundColor: UIColor.black]))
-            // Decinal Places
-            attr.append(NSAttributedString(string:  ".\(price![1])", attributes: [
-                NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14),
-                NSAttributedString.Key.foregroundColor: UIColor.black]))
-            
-            priceLabel.attributedText = attr
+            priceLabel.attributedText = datasource!.minPrice.toCurrencyAttributesString(currency: datasource.currency.currencyToSymbol(), withSize: 14)
         }
     }
     

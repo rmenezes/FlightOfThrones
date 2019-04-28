@@ -17,21 +17,30 @@ class HomeDependencyContainer {
         self.flightRepository = appDependencyContainer.sharedFlightRepository
         self.currencyRepository = appDependencyContainer.sharedCurrencyRepository
     }
-    
-    // Destination
-    func makeDestinationViewModel() -> DestinationViewModel {
-        return DestinationViewModel(repository: flightRepository, currencyRepository: currencyRepository)
-    }
 }
 
+// MARK: Destinations
 extension HomeDependencyContainer: HomeViewControllerFactory {
     func makeDetinationsViewController() -> DestinationViewController {
         return DestinationViewController(viewModel: makeDestinationViewModel(), viewControllerFactory: self)
     }
 }
 
+extension HomeDependencyContainer: DestinationViewModelFactory {
+    func makeDestinationViewModel() -> DestinationViewModelProtocol {
+        return DestinationViewModel(repository: flightRepository, currencyRepository: currencyRepository)
+    }
+}
+
+// MARK: Flight Options
 extension HomeDependencyContainer: DestinationViewControllerFactory {
-    func makeFlightOptionsViewController() -> UIViewController {
-        return UIViewController()
+    func makeFlightOptionsViewController(withDestination: FlightByPrice) -> FlightOptionsViewController {
+        return FlightOptionsViewController(viewModel: makeFlightOptionsViewModel(), destination: withDestination)
+    }
+}
+
+extension HomeDependencyContainer: FlightOptionsViewModelFactory {
+    func makeFlightOptionsViewModel() -> FlightOptionsViewModelProtocol {
+        return FlightOptionsViewModel(repository: flightRepository, currencyRepository: currencyRepository)
     }
 }

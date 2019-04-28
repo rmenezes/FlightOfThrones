@@ -67,6 +67,10 @@ class FlightDataStore: DataStore, FlightDataStoreProtocol {
         self.context.privateManagedObjectContext.perform {
             do {
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ManagedFlight")
+                let predicate = NSPredicate(format: "outOrigin == %@ AND outDestination == %@", origen, destination)
+
+                fetchRequest.predicate = predicate
+                
                 let results = try self.context.privateManagedObjectContext.fetch(fetchRequest) as! [ManagedFlight]
                 let flights = results.map { $0.toFlight() }
                 completionHandler(Result.success(flights))

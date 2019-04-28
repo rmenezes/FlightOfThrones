@@ -11,6 +11,7 @@ import UIKit
 protocol FlightRepositoryProtocol {
     func sync(completationHandler: @escaping (FlightError?) -> Void)
     func fetchDestinations(completationHandler: @escaping (Result<[FlightByPrice], FlightError>) -> Void)
+    func fetchFlightOptions(forFlight flight: FlightByPrice, completationHandler: @escaping (Result<[Flight], FlightError>) -> Void)
 }
 
 class FlightRepository: FlightRepositoryProtocol {
@@ -38,6 +39,10 @@ class FlightRepository: FlightRepositoryProtocol {
         dataStore.fetch(completionHandler: completationHandler)
     }
     
+    func fetchFlightOptions(forFlight flight: FlightByPrice, completationHandler: @escaping (Result<[Flight], FlightError>) -> Void) {
+        dataStore.fetchByDestionation(destination: flight.outDestination, andOrigen: flight.outOrigin, completionHandler: completationHandler)
+    }
+    
     // MARK: Private
     fileprivate func saveFlights(_ flights: [Flight], completationHandler: @escaping (FlightError?) -> Void) {
         self.dataStore.saveFlights(flights: flights, completionHandler: completationHandler)
@@ -46,7 +51,8 @@ class FlightRepository: FlightRepositoryProtocol {
     fileprivate func saveGroupedByDestination(_ flights: [Flight], completationHandler: @escaping (FlightError?) -> Void) {
         
         let destinationsGrouped = Dictionary(grouping: flights, by: { item -> String in
-            return "\(item.outbound.origin) - \(item.outbound.destination) / \(item.inbound.origin) - \(item.inbound.destination)"
+//            return "\(item.outbound.origin) - \(item.outbound.destination) / \(item.inbound.origin) - \(item.inbound.destination)"
+            return "\(item.outbound.origin) - \(item.outbound.destination)"
         })
         
         let flightsByDestination = destinationsGrouped.map({ (item) -> FlightByPrice in

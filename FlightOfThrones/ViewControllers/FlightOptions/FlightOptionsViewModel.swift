@@ -1,28 +1,27 @@
 //
-//  DestinationViewModel.swift
+//  FlightOptionsViewModel.swift
 //  FlightOfThrones
 //
-//  Created by Raul Menezes on 4/26/19.
+//  Created by Raul Menezes on 4/28/19.
 //  Copyright © 2019 Raul Menezes. All rights reserved.
 //
 
 import UIKit
 
-protocol DestinationViewModelProtocol {
+protocol FlightOptionsViewModelProtocol {
     var isBusy: Bindable<Bool> { get }
     var onError: Bindable<FlightError> { get }
-    var datasource: Bindable<[FlightByPrice]> { get }
+    var datasource: Bindable<[Flight]> { get }
     var currencies: [String: Double] { get }
     
-    func loadData()
-//    func convertPriceToCurrencyIfNeeded(flight: inout FlightByPrice, currencyDestination: CurrencyExchange)
+    func loadData(withFlightOptions flight: FlightByPrice)
 }
 
-protocol DestinationViewModelFactory {
-    func makeDestinationViewModel() -> DestinationViewModelProtocol
+protocol FlightOptionsViewModelFactory {
+    func makeFlightOptionsViewModel() -> FlightOptionsViewModelProtocol
 }
 
-class DestinationViewModel: DestinationViewModelProtocol {
+class FlightOptionsViewModel: FlightOptionsViewModelProtocol {
     // MARK: Fields
     fileprivate let repository: FlightRepositoryProtocol
     fileprivate let currencyRepository: CurrencyRepositoryProtocol
@@ -30,7 +29,7 @@ class DestinationViewModel: DestinationViewModelProtocol {
     // MARK: Properties
     var isBusy = Bindable<Bool>()
     var onError = Bindable<FlightError>()
-    var datasource = Bindable<[FlightByPrice]>()
+    var datasource = Bindable<[Flight]>()
     var currencies = [String: Double]()
     
     init(repository: FlightRepositoryProtocol, currencyRepository: CurrencyRepositoryProtocol) {
@@ -38,9 +37,8 @@ class DestinationViewModel: DestinationViewModelProtocol {
         self.currencyRepository = currencyRepository
     }
     
-    // MARK: DestinationViewModelProtocol
-    
-    func loadData() {
+    // MARK: FlightOptionsViewModelProtocol
+    func loadData(withFlightOptions flight: FlightByPrice) {
         DispatchQueue.global(qos: .background).async {
             self.currencyRepository.fetchAll { [weak self] (result) in
                 guard let self = self else { return }
@@ -50,29 +48,43 @@ class DestinationViewModel: DestinationViewModelProtocol {
                         $0[$1.currency] = $1.exchangeRate
                     })
                     
-                    self.repository.fetchDestinations { [weak self] (result) in
+                    self.repository.fetchFlightOptions(forFlight: flight) { [weak self] (result) in
                         guard let self = self else { return }
                         
                         if case .success(let flights) = result {
-                            var flByPrice = flights.map({ (flight) -> FlightByPrice in
+                            var flPrice = flights.map({ (flight) -> Flight in
                                 var fl = flight
-                                fl.convertPriceToCurrencyIfNeeded(currencies: self.currencies, currencyDestination: .eur)
+                                self.convertPriceToCurrencyIfNeeded(flight: &fl, currencyDestination: .eur)
                                 return fl
                             })
                             
-                            flByPrice.sort(by: { (flight1, flight2) -> Bool in
-                                return flight1.minPrice < flight2.minPrice
+                            flPrice.sort(by: { (flight1, flight2) -> Bool in
+                                return flight1.price < flight2.price
                             })
                             
-                            self.datasource.value = flByPrice
+                            self.datasource.value = flPrice
                         } else if case .failure(let error) = result {
                             self.onError.value = error
                         }
+
                     }
                 } else if case .failure(let error) = result {
                     self.onError.value = error
                 }
             }
         }
+    }
+    
+    @inlinable func convertPriceToCurrencyIfNeeded(flight: inout Flight, currencyDestination: CurrencyExchange) {
+        if flight.currency == currencyDestination.rawValue {
+            return
+        }
+        
+        guard let factor = currencies[flight.currency] else {
+            return
+        }
+        
+        flight.price = flight.price * factor
+        flight.currency = currencyDestination.rawValue
     }
 }

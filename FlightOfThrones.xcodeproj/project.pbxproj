@@ -37,6 +37,12 @@
 		E5B3D90722732B4200DD15D7 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D90622732B4200DD15D7 /* CurrencyRepository.swift */; };
 		E5B3D9092273546A00DD15D7 /* FlightContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D9082273546A00DD15D7 /* FlightContext.swift */; };
 		E5B3D90B2273659D00DD15D7 /* Extensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D90A2273659D00DD15D7 /* Extensions+String.swift */; };
+		E5B3D90E2275BD3B00DD15D7 /* FlightOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D90D2275BD3B00DD15D7 /* FlightOptionsViewController.swift */; };
+		E5B3D9102275BD7000DD15D7 /* FlightOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D90F2275BD7000DD15D7 /* FlightOptionsViewModel.swift */; };
+		E5B3D9122275C4D200DD15D7 /* FlightOptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D9112275C4D200DD15D7 /* FlightOptionViewCell.swift */; };
+		E5B3D9142275C60800DD15D7 /* TotalOfResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D9132275C60800DD15D7 /* TotalOfResultView.swift */; };
+		E5B3D9162275FE7800DD15D7 /* Extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D9152275FE7800DD15D7 /* Extension+Double.swift */; };
+		E5B3D9182276092600DD15D7 /* Extensions+Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D9172276092600DD15D7 /* Extensions+Flight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +90,12 @@
 		E5B3D90622732B4200DD15D7 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
 		E5B3D9082273546A00DD15D7 /* FlightContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightContext.swift; sourceTree = "<group>"; };
 		E5B3D90A2273659D00DD15D7 /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
+		E5B3D90D2275BD3B00DD15D7 /* FlightOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightOptionsViewController.swift; sourceTree = "<group>"; };
+		E5B3D90F2275BD7000DD15D7 /* FlightOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightOptionsViewModel.swift; sourceTree = "<group>"; };
+		E5B3D9112275C4D200DD15D7 /* FlightOptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightOptionViewCell.swift; sourceTree = "<group>"; };
+		E5B3D9132275C60800DD15D7 /* TotalOfResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOfResultView.swift; sourceTree = "<group>"; };
+		E5B3D9152275FE7800DD15D7 /* Extension+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Double.swift"; sourceTree = "<group>"; };
+		E5B3D9172276092600DD15D7 /* Extensions+Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Flight.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +168,8 @@
 			children = (
 				E5B3D8C922721AB900DD15D7 /* Banner.swift */,
 				E5B3D8FC227310DB00DD15D7 /* DestinationsViewCell.swift */,
+				E5B3D9112275C4D200DD15D7 /* FlightOptionViewCell.swift */,
+				E5B3D9132275C60800DD15D7 /* TotalOfResultView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +187,8 @@
 				E5B3D8CD227224FE00DD15D7 /* Extensions+UIColor.swift */,
 				E5B3D8DF22723D2500DD15D7 /* Extension+NSManaged.swift */,
 				E5B3D90A2273659D00DD15D7 /* Extensions+String.swift */,
+				E5B3D9152275FE7800DD15D7 /* Extension+Double.swift */,
+				E5B3D9172276092600DD15D7 /* Extensions+Flight.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -189,6 +205,7 @@
 		E5B3D8D222722E1900DD15D7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E5B3D90C2275BD1B00DD15D7 /* FlightOptions */,
 				E5B3D8F4227309BC00DD15D7 /* Destination */,
 				E5B3D8E92272506800DD15D7 /* Home */,
 				E5B3D8E722724D0A00DD15D7 /* NiblessViewController.swift */,
@@ -254,6 +271,15 @@
 				E5B3D8F822730BAE00DD15D7 /* DestinationViewModel.swift */,
 			);
 			path = Destination;
+			sourceTree = "<group>";
+		};
+		E5B3D90C2275BD1B00DD15D7 /* FlightOptions */ = {
+			isa = PBXGroup;
+			children = (
+				E5B3D90D2275BD3B00DD15D7 /* FlightOptionsViewController.swift */,
+				E5B3D90F2275BD7000DD15D7 /* FlightOptionsViewModel.swift */,
+			);
+			path = FlightOptions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,19 +385,25 @@
 				E5B3D89E2272172C00DD15D7 /* FlightOfThrones.xcdatamodeld in Sources */,
 				E5B3D8F922730BAE00DD15D7 /* DestinationViewModel.swift in Sources */,
 				E5B3D8E32272498A00DD15D7 /* HomeViewModel.swift in Sources */,
+				E5B3D90E2275BD3B00DD15D7 /* FlightOptionsViewController.swift in Sources */,
 				E5B3D8E622724A6100DD15D7 /* Bindable.swift in Sources */,
 				E5B3D8F3227303DF00DD15D7 /* HomeDependencyContainer.swift in Sources */,
 				E5B3D90B2273659D00DD15D7 /* Extensions+String.swift in Sources */,
 				E5B3D8FB22730F6D00DD15D7 /* Apperance.swift in Sources */,
 				E5B3D9012273284000DD15D7 /* Currency.swift in Sources */,
 				E5B3D8E822724D0A00DD15D7 /* NiblessViewController.swift in Sources */,
+				E5B3D9102275BD7000DD15D7 /* FlightOptionsViewModel.swift in Sources */,
+				E5B3D9122275C4D200DD15D7 /* FlightOptionViewCell.swift in Sources */,
 				E5B3D8EF227300B900DD15D7 /* Endpoints.swift in Sources */,
 				E5B3D90722732B4200DD15D7 /* CurrencyRepository.swift in Sources */,
 				E5B3D8CA22721AB900DD15D7 /* Banner.swift in Sources */,
 				E5B3D8E022723D2500DD15D7 /* Extension+NSManaged.swift in Sources */,
 				E5B3D8962272172C00DD15D7 /* AppDelegate.swift in Sources */,
 				E5B3D9092273546A00DD15D7 /* FlightContext.swift in Sources */,
+				E5B3D9142275C60800DD15D7 /* TotalOfResultView.swift in Sources */,
+				E5B3D9182276092600DD15D7 /* Extensions+Flight.swift in Sources */,
 				E5B3D9052273295A00DD15D7 /* CurrencyDataStore.swift in Sources */,
+				E5B3D9162275FE7800DD15D7 /* Extension+Double.swift in Sources */,
 				E5B3D8C62272198400DD15D7 /* HomeViewController.swift in Sources */,
 				E5B3D8D122722C5900DD15D7 /* Flight.swift in Sources */,
 				E5B3D8FD227310DB00DD15D7 /* DestinationsViewCell.swift in Sources */,

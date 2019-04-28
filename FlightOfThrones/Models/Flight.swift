@@ -13,8 +13,8 @@ struct FlightResponse: Decodable {
 }
 
 struct Flight: Decodable {
-    let price: Double
-    let currency: String
+    var price: Double
+    var currency: String
     let inbound: DragonFlight
     let outbound: DragonFlight
 }

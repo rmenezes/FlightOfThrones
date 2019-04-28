@@ -79,6 +79,12 @@ extension DestinationViewController: UICollectionViewDataSource {
         
         return viewCell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = datasource[indexPath.row]
+        
+        navigationController?.pushViewController(viewControllerFactory.makeFlightOptionsViewController(withDestination: item), animated: true)
+    }
 }
 
 extension DestinationViewController: UICollectionViewDelegateFlowLayout {
@@ -88,5 +94,5 @@ extension DestinationViewController: UICollectionViewDelegateFlowLayout {
 }
 
 protocol DestinationViewControllerFactory {
-    func makeFlightOptionsViewController() -> UIViewController
+    func makeFlightOptionsViewController(withDestination: FlightByPrice) -> FlightOptionsViewController
 }
