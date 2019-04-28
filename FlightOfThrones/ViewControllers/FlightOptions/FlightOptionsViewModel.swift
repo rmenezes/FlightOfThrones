@@ -54,7 +54,7 @@ class FlightOptionsViewModel: FlightOptionsViewModelProtocol {
                         if case .success(let flights) = result {
                             var flPrice = flights.map({ (flight) -> Flight in
                                 var fl = flight
-                                self.convertPriceToCurrencyIfNeeded(flight: &fl, currencyDestination: .eur)
+                                fl.convertPriceToCurrencyIfNeeded(currencies: self.currencies, currencyDestination: .eur)
                                 return fl
                             })
                             
@@ -73,18 +73,5 @@ class FlightOptionsViewModel: FlightOptionsViewModelProtocol {
                 }
             }
         }
-    }
-    
-    @inlinable func convertPriceToCurrencyIfNeeded(flight: inout Flight, currencyDestination: CurrencyExchange) {
-        if flight.currency == currencyDestination.rawValue {
-            return
-        }
-        
-        guard let factor = currencies[flight.currency] else {
-            return
-        }
-        
-        flight.price = flight.price * factor
-        flight.currency = currencyDestination.rawValue
     }
 }

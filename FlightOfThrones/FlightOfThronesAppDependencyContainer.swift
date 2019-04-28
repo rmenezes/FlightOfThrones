@@ -16,10 +16,12 @@ class FlightOfThronesAppDependencyContainer {
     init() {
         let context = FlightContext()
         
-        func makeFlightRepository() -> FlightRepositoryProtocol {
-            let flightStore = makeFlightStore()
-            let flightApi = makeFlightApi()
-            return FlightRepository(remoteService: flightApi, dataStore: flightStore)
+        func makeCurrencyStore() -> CurrencyDataStoreProtocol {
+            return CurrencyDataStore(context: context)
+        }
+        
+        func makeCurrencyApi() -> CurrencyRemoteApiProtocol {
+            return CurrencyRemoteAPI(url: Endpoints.kCurrency)
         }
         
         func makeCurrencyRepository() -> CurrencyRepositoryProtocol {
@@ -28,20 +30,18 @@ class FlightOfThronesAppDependencyContainer {
             return CurrencyRepository(remoteService: currencyApi, dataStore: currencyStore)
         }
         
+        func makeFlightRepository() -> FlightRepositoryProtocol {
+            let flightStore = makeFlightStore()
+            let flightApi = makeFlightApi()
+            return FlightRepository(remoteService: flightApi, dataStore: flightStore, currencyDataStore: makeCurrencyStore())
+        }
+        
         func makeFlightStore() -> FlightDataStoreProtocol {
             return FlightDataStore(context: context)
         }
         
         func makeFlightApi() -> FlightRemoteAPIProtocol {
             return FlightRemoteAPI(url: Endpoints.kFlights)
-        }
-        
-        func makeCurrencyStore() -> CurrencyDataStoreProtocol {
-            return CurrencyDataStore(context: context)
-        }
-        
-        func makeCurrencyApi() -> CurrencyRemoteApiProtocol {
-            return CurrencyRemoteAPI(url: Endpoints.kCurrency)
         }
         
         self.sharedFlightRepository = makeFlightRepository()

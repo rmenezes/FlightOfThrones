@@ -15,7 +15,6 @@ protocol DestinationViewModelProtocol {
     var currencies: [String: Double] { get }
     
     func loadData()
-//    func convertPriceToCurrencyIfNeeded(flight: inout FlightByPrice, currencyDestination: CurrencyExchange)
 }
 
 protocol DestinationViewModelFactory {
@@ -53,18 +52,12 @@ class DestinationViewModel: DestinationViewModelProtocol {
                     self.repository.fetchDestinations { [weak self] (result) in
                         guard let self = self else { return }
                         
-                        if case .success(let flights) = result {
-                            var flByPrice = flights.map({ (flight) -> FlightByPrice in
-                                var fl = flight
-                                fl.convertPriceToCurrencyIfNeeded(currencies: self.currencies, currencyDestination: .eur)
-                                return fl
-                            })
-                            
-                            flByPrice.sort(by: { (flight1, flight2) -> Bool in
+                        if case .success(var flights) = result {
+                            flights.sort(by: { (flight1, flight2) -> Bool in
                                 return flight1.minPrice < flight2.minPrice
                             })
                             
-                            self.datasource.value = flByPrice
+                            self.datasource.value = flights
                         } else if case .failure(let error) = result {
                             self.onError.value = error
                         }

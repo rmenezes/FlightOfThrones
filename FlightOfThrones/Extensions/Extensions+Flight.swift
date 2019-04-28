@@ -32,6 +32,19 @@ extension Flight {
         
         return attr
     }
+    
+    @inlinable mutating func convertPriceToCurrencyIfNeeded(currencies: [String: Double], currencyDestination: CurrencyExchange) {
+        if currency == currencyDestination.rawValue {
+            return
+        }
+        
+        guard let factor = currencies[currency] else {
+            return
+        }
+        
+        price = price * factor
+        currency = currencyDestination.rawValue
+    }
 }
 
 extension FlightByPrice {

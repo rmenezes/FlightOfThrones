@@ -40,29 +40,6 @@ extension ManagedFlight {
     }
 }
 
-extension ManagedFlightDestination {
-    func toDestination() -> FlightByPrice {
-        
-        return FlightByPrice(outDestination: outDestination!,
-                             outOrigin: outOrigin!,
-                             inDestination: inDestination!,
-                             inOrigin: inOrigin!,
-                             minPrice: price,
-                             currency: currency!)
-    }
-    
-    func fromFlightByPrice(flight: FlightByPrice) {
-        price = flight.minPrice
-        currency = flight.currency
-        
-        self.outDestination = flight.outDestination
-        self.outOrigin = flight.outOrigin
-        
-        self.inDestination = flight.inDestination
-        self.inOrigin = flight.inOrigin
-    }
-}
-
 extension ManagedCurrency {
     func fromCurrency(currency: String, exchange: Currency) {
         value = exchange.exchangeRate
