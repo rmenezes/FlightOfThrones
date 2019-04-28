@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  FlightOfThrones
+
+  Created by Raul Menezes on 4/28/19.
+  Copyright © 2019 Raul Menezes. All rights reserved.
+*/
+
+/* Errors */
+"ERROR_CANNOT_SAVE_FLIGHT" = "Cannot save flights";
+"ERROR_CANNOT_FETCH_FLIGHT" = "Cannot fetch flights";
+"ERROR_APPLICATION_NOT_CONNECTED_TO_INTERNET" = "Application must be connected to the internet";
+
+/* UI - Fligh Optins */
+"UI_FLIGHT_OPTIONS_TITLE" = "Results";
+"UI_FLIGHT_OPTIONS_TAXES_TEXT" = "All taxes and fee includes";
+"UI_FLIGHT_OPTIONS_DEPARTURE" = "DEPARTURE";
+"UI_FLIGHT_OPTIONS_RETURN" = "RETURN";
+"UI_FLIGHT_OPTIONS_DEPARTING_ON" = "DEPARTING ON ";
+"UI_FLIGHT_OPTIONS_RETURNING_ON" = "RETURNING ON ";
+"UI_FLIGHT_OPTIONS_RESULT" = "results";
+
+/* UI - Destinations */
+"UI_DESTINATIONS_TITLE" = "Dragons";
+"UI_DESTINATIONS_CELL_DESTINATION" = "Destination";
+"UI_DESTINATIONS_CELL_ORIGIN" = "Origin";
+
+/* UI - Home */
+"UI_HOME_BUTTON_SEARCH" = "Search Dragons";

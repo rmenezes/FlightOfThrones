@@ -9,12 +9,12 @@
 import CoreData
 
 protocol CurrencyDataStoreProtocol {
-    func saveCurrency(currency: String, exchange: Currency, completionHandler: @escaping (_ result: FlightError?) -> Void)
-    func fetchAll(completionHandler: @escaping (Result<[Currency], FlightError>) -> Void)
+    func saveCurrency(currency: String, exchange: Currency, completionHandler: @escaping (_ result: FlightOfThronesErrors?) -> Void)
+    func fetchAll(completionHandler: @escaping (Result<[Currency], FlightOfThronesErrors>) -> Void)
 }
 
 class CurrencyDataStore: DataStore, CurrencyDataStoreProtocol {
-    func saveCurrency(currency: String, exchange: Currency, completionHandler: @escaping (_ result: FlightError?) -> Void) {
+    func saveCurrency(currency: String, exchange: Currency, completionHandler: @escaping (_ result: FlightOfThronesErrors?) -> Void) {
         self.context.privateManagedObjectContext.perform {
             do {
                 let managedObj = ManagedCurrency(context: self.context.privateManagedObjectContext)
@@ -24,12 +24,12 @@ class CurrencyDataStore: DataStore, CurrencyDataStoreProtocol {
                 
                 completionHandler(nil)
             } catch {
-                completionHandler(FlightError.cannotSaveFlight("Cannot save flights"))
+                completionHandler(FlightOfThronesErrors.cannotSaveFlight(NSLocalizedString("ERROR_CANNOT_FETCH_FLIGHT", comment: "")))
             }
         }
     }
     
-    func fetchAll(completionHandler: @escaping (Result<[Currency], FlightError>) -> Void) {
+    func fetchAll(completionHandler: @escaping (Result<[Currency], FlightOfThronesErrors>) -> Void) {
         self.context.privateManagedObjectContext.perform {
             do {
                 let request: NSFetchRequest<ManagedCurrency> = ManagedCurrency.fetchRequest()
@@ -37,7 +37,7 @@ class CurrencyDataStore: DataStore, CurrencyDataStoreProtocol {
                 let currencies = try self.context.privateManagedObjectContext.fetch(request)
                 completionHandler(Result.success(currencies.map{ $0.toCurrency() }))
             } catch {
-                completionHandler(Result.failure(FlightError.cannotFetchCurrency(error.localizedDescription)))
+                completionHandler(Result.failure(FlightOfThronesErrors.cannotFetchCurrency(error.localizedDescription)))
             }
         }
     }

@@ -10,7 +10,8 @@ import UIKit
 
 protocol HomeViewModelProtocol {
     var isBusy: Bindable<Bool> { get }
-    func sync(completationHandler: @escaping (FlightError?) -> Void)
+    var onError: Bindable<FlightOfThronesErrors> { get }
+    func sync(completationHandler: @escaping (FlightOfThronesErrors?) -> Void)
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -20,6 +21,7 @@ class HomeViewModel: HomeViewModelProtocol {
     
     // MARK: Properties
     var isBusy = Bindable<Bool>()
+    var onError = Bindable<FlightOfThronesErrors>()
     
     init(flightRepository: FlightRepositoryProtocol, currencyRepository: CurrencyRepositoryProtocol) {
         self.flightRepository = flightRepository
@@ -27,16 +29,17 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     // MARK: HomeViewModelProtocol
-    func sync(completationHandler: @escaping (FlightError?) -> Void) {
+    func sync(completationHandler: @escaping (FlightOfThronesErrors?) -> Void) {
         DispatchQueue.global(qos: .background).async {
             self.isBusy.value = true
             
             self.flightRepository.sync { (error) in
                 self.isBusy.value = false
+                self.onError.value = error
             }
             
             self.currencyRepository.sync(completationHandler: { (error) in
-                
+                self.onError.value = error
             })
         }
     }

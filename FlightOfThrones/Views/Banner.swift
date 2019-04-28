@@ -21,7 +21,7 @@ class Banner: UIControl {
         let button = UIButton()
         button.backgroundColor = .black
         button.layer.cornerRadius = 5
-        button.setTitle("Search Dragons", for: .normal)
+        button.setTitle(NSLocalizedString("UI_HOME_BUTTON_SEARCH", comment: ""), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15)
         button.addTarget(self, action: #selector(onSearchDragonsButton), for: .touchDown)
         return button

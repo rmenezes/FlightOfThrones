@@ -91,7 +91,7 @@ class DestinationsViewCell: UICollectionViewCell {
 
 fileprivate extension FlightByPrice {
     func toOriginToNSAttributedString() -> NSAttributedString {
-        let attrString = NSMutableAttributedString(string: "Origin", attributes: [
+        let attrString = NSMutableAttributedString(string: NSLocalizedString("UI_DESTINATIONS_CELL_ORIGIN", comment: ""), attributes: [
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 10),
             NSAttributedString.Key.foregroundColor: Apperance.Colors.middleGray])
         
@@ -102,7 +102,7 @@ fileprivate extension FlightByPrice {
     }
     
     func toDestinationoNSAttributedString() -> NSAttributedString {
-        let attrString = NSMutableAttributedString(string: "Destination", attributes: [
+        let attrString = NSMutableAttributedString(string: NSLocalizedString("UI_DESTINATIONS_CELL_DESTINATION", comment: ""), attributes: [
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 10),
             NSAttributedString.Key.foregroundColor: Apperance.Colors.middleGray])
         

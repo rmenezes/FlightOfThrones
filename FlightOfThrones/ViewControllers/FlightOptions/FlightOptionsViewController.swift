@@ -56,8 +56,8 @@ class FlightOptionsViewController: NiblessViewController {
     }
     
     fileprivate func observeOnError() {
-        viewModel.onError.bind { (error) in
-            
+        self.viewModel.onError.bind { (error) in
+            self.displayError(error: error)
         }
     }
     
@@ -69,8 +69,13 @@ class FlightOptionsViewController: NiblessViewController {
     }
     
     // MARK: Overrides
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     override func setupInterface() {
-        title = "Results"
+        title = NSLocalizedString("UI_FLIGHT_OPTIONS_TITLE", comment: "")
         
         view.backgroundColor = Apperance.Colors.gray
         
@@ -84,25 +89,50 @@ class FlightOptionsViewController: NiblessViewController {
     }
     
     override func setupConstraints() {
-        // Results View
-        resultsView.translatesAutoresizingMaskIntoConstraints = false
-        resultsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        resultsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        resultsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        resultsView.heightAnchor.constraint(equalToConstant: 28).isActive = true
-        
-        // Collection View
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: resultsView.bottomAnchor, constant: 20).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        if #available(iOS 11.0, *) {
+            // Results View
+            resultsView.translatesAutoresizingMaskIntoConstraints = false
+            resultsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            
+            resultsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+            resultsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+            resultsView.heightAnchor.constraint(equalToConstant: 28).isActive = true
+            
+            // Collection View
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.topAnchor.constraint(equalTo: resultsView.bottomAnchor, constant: 20).isActive = true
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            // Results View
+            resultsView.translatesAutoresizingMaskIntoConstraints = false
+            resultsView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            
+            resultsView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            resultsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            resultsView.heightAnchor.constraint(equalToConstant: 28).isActive = true
+            
+            // Collection View
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.topAnchor.constraint(equalTo: resultsView.bottomAnchor, constant: 20).isActive = true
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        }
     }
 }
 
 extension FlightOptionsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.bounds.width, height: 274)
+        
+        let width = Device.isIPad() ? (view.bounds.width / 2) - 10 : view.bounds.width
+        
+        if #available(iOS 11.0, *) {
+            return CGSize(width: width - view.safeAreaInsets.right - view.safeAreaInsets.left, height: 274)
+        } else {
+            return CGSize(width: width, height: 274)
+        }
     }
 }
 

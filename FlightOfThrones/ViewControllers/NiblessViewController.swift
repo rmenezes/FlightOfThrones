@@ -37,4 +37,24 @@ class NiblessViewController: UIViewController {
     func setupInterface() {
         
     }
+    
+    func displayError(error: Error?) {
+        guard let error = error else { return }
+        if let flError = error as? FlightOfThronesErrors {
+            displayErrorWithMessage(message: flError.getMessage())
+        } else {
+            displayErrorWithMessage(message: error.localizedDescription)
+        }
+    }
+    
+    fileprivate func displayErrorWithMessage(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Sorry", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }

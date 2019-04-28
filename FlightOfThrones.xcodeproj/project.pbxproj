@@ -43,6 +43,11 @@
 		E5B3D9142275C60800DD15D7 /* TotalOfResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D9132275C60800DD15D7 /* TotalOfResultView.swift */; };
 		E5B3D9162275FE7800DD15D7 /* Extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D9152275FE7800DD15D7 /* Extension+Double.swift */; };
 		E5B3D9182276092600DD15D7 /* Extensions+Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D9172276092600DD15D7 /* Extensions+Flight.swift */; };
+		E5B3D91A2276223A00DD15D7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D9192276223A00DD15D7 /* Reachability.swift */; };
+		E5B3D91C2276235B00DD15D7 /* FlightOfThronesErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D91B2276235B00DD15D7 /* FlightOfThronesErrors.swift */; };
+		E5B3D91E22762CE600DD15D7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D91D22762CE600DD15D7 /* Device.swift */; };
+		E5B3D9202276308D00DD15D7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5B3D91F2276308D00DD15D7 /* Localizable.strings */; };
+		E5B3D922227639D200DD15D7 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3D921227639D200DD15D7 /* AsyncImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +101,11 @@
 		E5B3D9132275C60800DD15D7 /* TotalOfResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOfResultView.swift; sourceTree = "<group>"; };
 		E5B3D9152275FE7800DD15D7 /* Extension+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Double.swift"; sourceTree = "<group>"; };
 		E5B3D9172276092600DD15D7 /* Extensions+Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Flight.swift"; sourceTree = "<group>"; };
+		E5B3D9192276223A00DD15D7 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		E5B3D91B2276235B00DD15D7 /* FlightOfThronesErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightOfThronesErrors.swift; sourceTree = "<group>"; };
+		E5B3D91D22762CE600DD15D7 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		E5B3D91F2276308D00DD15D7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		E5B3D921227639D200DD15D7 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +152,7 @@
 				E5B3D8D222722E1900DD15D7 /* ViewControllers */,
 				E5B3D8CF22722C3C00DD15D7 /* Models */,
 				E5B3D8CC227224ED00DD15D7 /* Extensions */,
-				E5B3D8CB22721CE500DD15D7 /* Locations */,
+				E5B3D8CB22721CE500DD15D7 /* Localizations */,
 				E5B3D8C822721A9F00DD15D7 /* Views */,
 				E5B3D8952272172C00DD15D7 /* AppDelegate.swift */,
 				E5B3D89F2272172E00DD15D7 /* Assets.xcassets */,
@@ -170,15 +180,17 @@
 				E5B3D8FC227310DB00DD15D7 /* DestinationsViewCell.swift */,
 				E5B3D9112275C4D200DD15D7 /* FlightOptionViewCell.swift */,
 				E5B3D9132275C60800DD15D7 /* TotalOfResultView.swift */,
+				E5B3D921227639D200DD15D7 /* AsyncImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E5B3D8CB22721CE500DD15D7 /* Locations */ = {
+		E5B3D8CB22721CE500DD15D7 /* Localizations */ = {
 			isa = PBXGroup;
 			children = (
+				E5B3D91F2276308D00DD15D7 /* Localizable.strings */,
 			);
-			path = Locations;
+			path = Localizations;
 			sourceTree = "<group>";
 		};
 		E5B3D8CC227224ED00DD15D7 /* Extensions */ = {
@@ -250,6 +262,9 @@
 				E5B3D8E522724A6100DD15D7 /* Bindable.swift */,
 				E5B3D8EE227300B900DD15D7 /* Endpoints.swift */,
 				E5B3D8FA22730F6D00DD15D7 /* Apperance.swift */,
+				E5B3D9192276223A00DD15D7 /* Reachability.swift */,
+				E5B3D91B2276235B00DD15D7 /* FlightOfThronesErrors.swift */,
+				E5B3D91D22762CE600DD15D7 /* Device.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -364,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5B3D8A32272172E00DD15D7 /* LaunchScreen.storyboard in Resources */,
+				E5B3D9202276308D00DD15D7 /* Localizable.strings in Resources */,
 				E5B3D8A02272172E00DD15D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,9 +401,11 @@
 				E5B3D89E2272172C00DD15D7 /* FlightOfThrones.xcdatamodeld in Sources */,
 				E5B3D8F922730BAE00DD15D7 /* DestinationViewModel.swift in Sources */,
 				E5B3D8E32272498A00DD15D7 /* HomeViewModel.swift in Sources */,
+				E5B3D91E22762CE600DD15D7 /* Device.swift in Sources */,
 				E5B3D90E2275BD3B00DD15D7 /* FlightOptionsViewController.swift in Sources */,
 				E5B3D8E622724A6100DD15D7 /* Bindable.swift in Sources */,
 				E5B3D8F3227303DF00DD15D7 /* HomeDependencyContainer.swift in Sources */,
+				E5B3D91A2276223A00DD15D7 /* Reachability.swift in Sources */,
 				E5B3D90B2273659D00DD15D7 /* Extensions+String.swift in Sources */,
 				E5B3D8FB22730F6D00DD15D7 /* Apperance.swift in Sources */,
 				E5B3D9012273284000DD15D7 /* Currency.swift in Sources */,
@@ -410,9 +428,11 @@
 				E5B3D8F6227309CF00DD15D7 /* DestinationViewController.swift in Sources */,
 				E5B3D8DC227239CF00DD15D7 /* FlightDataStore.swift in Sources */,
 				E5B3D8CE227224FE00DD15D7 /* Extensions+UIColor.swift in Sources */,
+				E5B3D922227639D200DD15D7 /* AsyncImageView.swift in Sources */,
 				E5B3D8ED2272FFAC00DD15D7 /* FlightOfThronesAppDependencyContainer.swift in Sources */,
 				E5B3D8FF227327D500DD15D7 /* CurrencyRemoteAPI.swift in Sources */,
 				E5B3D9032273292700DD15D7 /* DataStore.swift in Sources */,
+				E5B3D91C2276235B00DD15D7 /* FlightOfThronesErrors.swift in Sources */,
 				E5B3D8DE22723AA100DD15D7 /* FlightRepository.swift in Sources */,
 				E5B3D8D522722E9700DD15D7 /* FlightRemoteAPI.swift in Sources */,
 			);
@@ -571,6 +591,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9H6658UH7V;
 				INFOPLIST_FILE = FlightOfThrones/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -589,6 +610,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9H6658UH7V;
 				INFOPLIST_FILE = FlightOfThrones/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

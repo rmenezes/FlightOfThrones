@@ -32,10 +32,9 @@ class HomeViewController: NiblessViewController {
         super.viewDidLoad()
         
         observeIsBusy()
+        observeOnError()
         
-        self.viewModel.sync(completationHandler: { (error) in
-            
-        })
+        sync()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -47,12 +46,8 @@ class HomeViewController: NiblessViewController {
         navigationController?.pushViewController(viewControllerFactory.makeDetinationsViewController(), animated: true)
     }
     
-    func observeIsBusy() {
-        viewModel.isBusy.bind { (isBusy) in
-            DispatchQueue.main.async {
-                self.bannerView.isBusy = isBusy ?? false
-            }
-        }
+    @objc func onRefresh() {
+        sync()
     }
     
     // MARK: Overrides
@@ -65,14 +60,46 @@ class HomeViewController: NiblessViewController {
         let logoImage = UIImageView(image: #imageLiteral(resourceName: "Logo"))
         logoImage.contentMode = .scaleAspectFit
         navigationItem.titleView = logoImage
+        
+        // Setup Image Button
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(onRefresh))
     }
     
     override func setupConstraints() {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
-        bannerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
-        bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        
+        if #available(iOS 11.0, *) {
+            bannerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+            bannerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+            bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        } else {
+            bannerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+            bannerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+            bannerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        }
+        
         bannerView.heightAnchor.constraint(equalToConstant: 183).isActive = true
+    }
+    
+    fileprivate func observeIsBusy() {
+        viewModel.isBusy.bind { (isBusy) in
+            DispatchQueue.main.async {
+                self.bannerView.isBusy = isBusy ?? false
+                self.navigationItem.leftBarButtonItem?.isEnabled = !(isBusy ?? false)
+            }
+        }
+    }
+    
+    fileprivate func observeOnError() {
+        self.viewModel.onError.bind { (error) in
+            self.displayError(error: error)
+        }
+    }
+    
+    fileprivate func sync() {
+        self.viewModel.sync(completationHandler: { (error) in
+            
+        })
     }
 }
 

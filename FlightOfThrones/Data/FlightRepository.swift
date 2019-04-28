@@ -9,24 +9,32 @@
 import UIKit
 
 protocol FlightRepositoryProtocol {
-    func sync(completationHandler: @escaping (FlightError?) -> Void)
-    func fetchDestinations(completationHandler: @escaping (Result<[FlightByPrice], FlightError>) -> Void)
-    func fetchFlightOptions(forFlight flight: FlightByPrice, completationHandler: @escaping (Result<[Flight], FlightError>) -> Void)
+    func sync(completationHandler: @escaping (FlightOfThronesErrors?) -> Void)
+    func fetchDestinations(completationHandler: @escaping (Result<[FlightByPrice], FlightOfThronesErrors>) -> Void)
+    func fetchFlightOptions(forFlight flight: FlightByPrice, completationHandler: @escaping (Result<[Flight], FlightOfThronesErrors>) -> Void)
 }
 
 class FlightRepository: FlightRepositoryProtocol {
     fileprivate let remoteService: FlightRemoteAPIProtocol
     fileprivate let dataStore: FlightDataStoreProtocol
     fileprivate let currencyDataStore: CurrencyDataStoreProtocol
+    fileprivate let reachability: Reachability
     
-    init(remoteService: FlightRemoteAPIProtocol, dataStore: FlightDataStoreProtocol, currencyDataStore: CurrencyDataStoreProtocol) {
+    init(remoteService: FlightRemoteAPIProtocol, dataStore: FlightDataStoreProtocol, currencyDataStore: CurrencyDataStoreProtocol,
+         reachability: Reachability) {
         self.remoteService = remoteService
         self.dataStore = dataStore
         self.currencyDataStore = currencyDataStore
+        self.reachability = reachability
     }
     
     // MARK: FlightRepositoryProtocol
-    func sync(completationHandler: @escaping (FlightError?) -> Void) {
+    func sync(completationHandler: @escaping (FlightOfThronesErrors?) -> Void) {
+        if !reachability.isConnectedToNetwork() {
+            completationHandler(FlightOfThronesErrors.notConnectedWithTheInternet(NSLocalizedString("ERROR_APPLICATION_NOT_CONNECTED_TO_INTERNET", comment: "")))
+            return
+        }
+        
         remoteService.fetchFlight { [weak self] (result) in
             guard let self = self else { return }
             
@@ -36,7 +44,7 @@ class FlightRepository: FlightRepositoryProtocol {
         }
     }
     
-    func fetchDestinations(completationHandler: @escaping (Result<[FlightByPrice], FlightError>) -> Void) {        
+    func fetchDestinations(completationHandler: @escaping (Result<[FlightByPrice], FlightOfThronesErrors>) -> Void) {        
         dataStore.fetchAllFlights { (result) in
             if case .success(let flights) = result {
                 
@@ -76,21 +84,12 @@ class FlightRepository: FlightRepositoryProtocol {
         }
     }
     
-    func fetchFlightOptions(forFlight flight: FlightByPrice, completationHandler: @escaping (Result<[Flight], FlightError>) -> Void) {
+    func fetchFlightOptions(forFlight flight: FlightByPrice, completationHandler: @escaping (Result<[Flight], FlightOfThronesErrors>) -> Void) {
         dataStore.fetchByDestionation(destination: flight.outDestination, andOrigen: flight.outOrigin, completionHandler: completationHandler)
     }
     
     // MARK: Private
-    fileprivate func saveFlights(_ flights: [Flight], completationHandler: @escaping (FlightError?) -> Void) {
+    fileprivate func saveFlights(_ flights: [Flight], completationHandler: @escaping (FlightOfThronesErrors?) -> Void) {
         self.dataStore.saveFlights(flights: flights, completionHandler: completationHandler)
     }
-}
-
-enum FlightError: Error {
-    case cannotFetchOnlineFlights(String)
-    case cannotFetchCurrency(String)
-    case cannotSaveFlight(String)
-    case cannotSaveDestination(String)
-    case cannotFeatchLocalFlights(String)
-    case invalidResponseFormat(String)
 }

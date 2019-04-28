@@ -23,7 +23,7 @@ class TotalOfResultView: UIView {
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = Apperance.Colors.middleGray
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "0 results"
+        label.text = "0 \(NSLocalizedString("UI_FLIGHT_OPTIONS_RESULT", comment: ""))"
         return label
     }()
     
@@ -36,7 +36,7 @@ class TotalOfResultView: UIView {
     
     var totalOfResults: Int = 0 {
         didSet {
-            totalLabel.text = "\(totalOfResults) results"
+            totalLabel.text = "\(totalOfResults) \(NSLocalizedString("UI_FLIGHT_OPTIONS_RESULT", comment: ""))"
         }
     }
     
@@ -53,11 +53,6 @@ class TotalOfResultView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func setNeedsLayout() {
-        super.setNeedsLayout()
-        setupConstraints()
     }
     
     // MARK: Private

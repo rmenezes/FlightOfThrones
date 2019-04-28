@@ -39,12 +39,19 @@ class DestinationViewController: NiblessViewController {
         super.viewDidLoad()
         
         observeDatasource()
+        observeOnError()
+        
         viewModel.loadData()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     override func setupInterface() {
         view.backgroundColor = Apperance.Colors.gray
-        title = "Dragons"
+        title = NSLocalizedString("UI_DESTINATIONS_TITLE", comment: "")
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -54,16 +61,30 @@ class DestinationViewController: NiblessViewController {
     
     override func setupConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        
+        if #available(iOS 11.0, *) {
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        } else {
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        }
     }
     
-    func observeDatasource() {
+    fileprivate func observeDatasource() {
         viewModel.datasource.bind { (flights) in
             guard let flights = flights else { return }
             self.datasource = flights
+        }
+    }
+    
+    fileprivate func observeOnError() {
+        self.viewModel.onError.bind { (error) in
+            self.displayError(error: error)
         }
     }
 }
@@ -89,7 +110,14 @@ extension DestinationViewController: UICollectionViewDataSource {
 
 extension DestinationViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.bounds.width, height: 120)
+        
+        let width = Device.isIPad() ? (view.frame.width / 2) - 10 : view.frame.width
+        
+        if #available(iOS 11.0, *) {
+            return CGSize(width: width - view.safeAreaInsets.right - view.safeAreaInsets.left, height: 120)
+        } else {
+            return CGSize(width: width, height: 120)
+        }
     }
 }
 

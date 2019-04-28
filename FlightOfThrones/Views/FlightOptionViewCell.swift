@@ -48,7 +48,7 @@ class FlightOptionViewCell: UICollectionViewCell {
     fileprivate let allTaxes: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "All taxes and fee includes"
+        label.text = NSLocalizedString("UI_FLIGHT_OPTIONS_TAXES_TEXT", comment: "")
         label.font = UIFont.systemFont(ofSize: 10)
         label.textColor = Apperance.Colors.middleGray
         return label
@@ -58,7 +58,7 @@ class FlightOptionViewCell: UICollectionViewCell {
     fileprivate let departureLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "DEPARTURE"
+        label.text = NSLocalizedString("UI_FLIGHT_OPTIONS_DEPARTURE", comment: "")
         label.font = UIFont.boldSystemFont(ofSize: 10)
         label.textColor = Apperance.Colors.middleGray
         return label
@@ -79,8 +79,8 @@ class FlightOptionViewCell: UICollectionViewCell {
         return label
     }()
     
-    fileprivate let depatureCompanyLogo: UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "IconCompanyPlaceholder"))
+    fileprivate let depatureCompanyLogo: AsyncImageView = {
+        let image = AsyncImageView(image: #imageLiteral(resourceName: "IconCompanyPlaceholder"))
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 5
         image.clipsToBounds = true
@@ -104,7 +104,7 @@ class FlightOptionViewCell: UICollectionViewCell {
     fileprivate let returnLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "RETURN"
+        label.text = NSLocalizedString("UI_FLIGHT_OPTIONS_RETURN", comment: "")
         label.font = UIFont.boldSystemFont(ofSize: 10)
         label.textColor = Apperance.Colors.middleGray
         return label
@@ -125,8 +125,8 @@ class FlightOptionViewCell: UICollectionViewCell {
         return label
     }()
     
-    fileprivate let returnCompanyLogo: UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "IconCompanyPlaceholder"))
+    fileprivate let returnCompanyLogo: AsyncImageView = {
+        let image = AsyncImageView(image: #imageLiteral(resourceName: "IconCompanyPlaceholder"))
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 5
         image.clipsToBounds = true
@@ -150,7 +150,7 @@ class FlightOptionViewCell: UICollectionViewCell {
     var datasource: Flight! {
         didSet {
             // Departing
-            let departAttr = NSMutableAttributedString(string: "DEPARTING ON ", attributes: [
+            let departAttr = NSMutableAttributedString(string: NSLocalizedString("UI_FLIGHT_OPTIONS_DEPARTING_ON", comment: ""), attributes: [
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 8),
                 NSAttributedString.Key.foregroundColor: Apperance.Colors.middleGray])
             departAttr.append(NSAttributedString(string: datasource.outbound.departureDate , attributes: [
@@ -160,7 +160,7 @@ class FlightOptionViewCell: UICollectionViewCell {
             departingOnLabel.attributedText = departAttr
             
             // Returning
-            let returtAttr = NSMutableAttributedString(string: "RETURNING ON ", attributes: [
+            let returtAttr = NSMutableAttributedString(string: NSLocalizedString("UI_FLIGHT_OPTIONS_RETURNING_ON", comment: ""), attributes: [
                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 8),
                 NSAttributedString.Key.foregroundColor: Apperance.Colors.middleGray])
             returtAttr.append(NSAttributedString(string: datasource?.inbound.departureDate ?? "--", attributes: [
@@ -178,11 +178,17 @@ class FlightOptionViewCell: UICollectionViewCell {
             // Out Informations
             departureInformationLabel.attributedText = datasource.toFlightDepartureDurationAttributedString()
             
+            // Out Logo
+            depatureCompanyLogo.loadImageUsingUrlString(urlString: datasource.outbound.airlineImage)
+            
             // In Company
             returnCompanyLabel.text = datasource.inbound.airline
             
             // In Company
             returnInformationLabel.attributedText = datasource.toFlightReturnDurationAttributedString()
+            
+            // Out Logo
+            returnCompanyLogo.loadImageUsingUrlString(urlString: datasource.inbound.airlineImage)
         }
     }
     
@@ -255,6 +261,8 @@ class FlightOptionViewCell: UICollectionViewCell {
         // Departure - Company Image
         depatureCompanyLogo.bottomAnchor.constraint(equalTo: departureLabel.bottomAnchor).isActive = true
         depatureCompanyLogo.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive = true
+        depatureCompanyLogo.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        depatureCompanyLogo.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         // Departure - Company Name
         departureCompanyLabel.bottomAnchor.constraint(equalTo: depatureCompanyLogo.bottomAnchor).isActive = true
@@ -281,6 +289,8 @@ class FlightOptionViewCell: UICollectionViewCell {
         // Return - Company Image
         returnCompanyLogo.bottomAnchor.constraint(equalTo: returnLabel.bottomAnchor).isActive = true
         returnCompanyLogo.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive = true
+        returnCompanyLogo.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        returnCompanyLogo.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         // Return - Company Name
         returnCompanyLabel.bottomAnchor.constraint(equalTo: returnCompanyLogo.bottomAnchor).isActive = true

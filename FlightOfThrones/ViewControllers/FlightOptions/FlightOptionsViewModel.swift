@@ -10,7 +10,7 @@ import UIKit
 
 protocol FlightOptionsViewModelProtocol {
     var isBusy: Bindable<Bool> { get }
-    var onError: Bindable<FlightError> { get }
+    var onError: Bindable<FlightOfThronesErrors> { get }
     var datasource: Bindable<[Flight]> { get }
     var currencies: [String: Double] { get }
     
@@ -28,7 +28,7 @@ class FlightOptionsViewModel: FlightOptionsViewModelProtocol {
     
     // MARK: Properties
     var isBusy = Bindable<Bool>()
-    var onError = Bindable<FlightError>()
+    var onError = Bindable<FlightOfThronesErrors>()
     var datasource = Bindable<[Flight]>()
     var currencies = [String: Double]()
     

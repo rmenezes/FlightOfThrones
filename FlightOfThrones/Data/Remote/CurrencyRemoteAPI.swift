@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CurrencyRemoteApiProtocol {
-    func fetchCurrency(from: CurrencyExchange, to: CurrencyExchange, completionHandler: @escaping (_ result: Result<Currency, FlightError>) -> Void)
+    func fetchCurrency(from: CurrencyExchange, to: CurrencyExchange, completionHandler: @escaping (_ result: Result<Currency, FlightOfThronesErrors>) -> Void)
 }
 
 class CurrencyRemoteAPI: NSObject, CurrencyRemoteApiProtocol {
@@ -20,7 +20,7 @@ class CurrencyRemoteAPI: NSObject, CurrencyRemoteApiProtocol {
         super.init()
     }
     
-    func fetchCurrency(from: CurrencyExchange, to: CurrencyExchange, completionHandler: @escaping (Result<Currency, FlightError>) -> Void) {
+    func fetchCurrency(from: CurrencyExchange, to: CurrencyExchange, completionHandler: @escaping (Result<Currency, FlightOfThronesErrors>) -> Void) {
         guard var url = self.url else { return }
         
         var queryParams = [URLQueryItem]()
@@ -30,7 +30,7 @@ class CurrencyRemoteAPI: NSObject, CurrencyRemoteApiProtocol {
         
         let task = URLSession.shared.dataTask(with: url.url!) { (data, response, error) in
             guard let dataResponse = data, error == nil else {
-                completionHandler(Result.failure(FlightError.cannotFetchCurrency(error.debugDescription)))
+                completionHandler(Result.failure(FlightOfThronesErrors.cannotFetchCurrency(error.debugDescription)))
                 return
             }
             
@@ -38,7 +38,7 @@ class CurrencyRemoteAPI: NSObject, CurrencyRemoteApiProtocol {
                 let currency = try JSONDecoder().decode(Currency.self, from: dataResponse)
                 completionHandler(Result.success(currency))
             } catch {
-                completionHandler(Result.failure(FlightError.invalidResponseFormat(error.localizedDescription)))
+                completionHandler(Result.failure(FlightOfThronesErrors.invalidResponseFormat(error.localizedDescription)))
             }
         }
         
